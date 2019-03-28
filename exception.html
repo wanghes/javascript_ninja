@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试函数重载</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+</head>
+<body>
+<script type="text/javascript">
+
+	/***
+	javascript 提供了一套异常处理机制，异常是干扰程序的正常流程的非正常的事故，当查出这样的事故时， 你的程序应该抛出一个异常
+	throw语句中断函数的执行，他应该抛出一个exception对象，该对象包含可识别的异常类型的name属性和描述性的message属性，你也可以已添加其他属性
+	改异常对象被传递到一个try语句的catch从句：
+	**/
+	var add = function(a, b) {
+		if (typeof a !== 'number' || typeof b !== 'number') {
+			throw {
+				name: "TypeError",
+				message: "add need numbers"
+			}
+		}
+		return a + b;
+	}
+
+
+	var try_catch = function() {
+		try {
+			add("event")
+		} catch (e) {
+			document.writeln(e.name + ': ' + e.message);
+		}
+	}
+
+	try_catch();
+
+</script>	
+</body>
+</html>
