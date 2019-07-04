@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="./swiper.css">
+
+  <!-- Demo styles -->
+  <style>
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div style="box-sizing: content-box;width:320px;height:192px;position:relative;margin:0 auto;"><iframe id="iframeu3689190_0" name="iframeu3689190_0" src="https://pos.baidu.com/accm?conwid=320&amp;conhei=192&amp;rdid=3689190&amp;dc=3&amp;exps=110011&amp;psi=25a1629c3f8d1ad9cb381f5dcd452f56&amp;di=u3689190&amp;dri=0&amp;dis=0&amp;dai=5&amp;ps=100x0&amp;enu=encoding&amp;dcb=___adblockplus&amp;dtm=HTML_POST&amp;dvi=0.0&amp;dci=-1&amp;dpt=none&amp;tsr=0&amp;tpr=1554968120276&amp;ti=%E3%80%90%E6%83%85%E4%BE%A3%E5%8F%8C%E4%BA%BA%E5%86%85%E8%A3%A4%E3%80%91%E8%B6%85%E7%B4%A7%EF%BC%8C%E8%B6%85%E5%B0%B4%E5%B0%AC%E5%95%8A%EF%BC%81&amp;ari=2&amp;dbv=0&amp;drs=3&amp;pcs=320x568&amp;pss=320x2131&amp;cfv=0&amp;cpl=0&amp;chi=3&amp;cce=true&amp;cec=UTF-8&amp;tlm=1554968121&amp;prot=2&amp;rw=320&amp;ltu=https%3A%2F%2Fm.shjy18.com%2Fmf%2Fdetail%3Faid%3Def2241e7c714fe37c1fa6483a6dd233e%26cid%3D58a3f6993eabe8f72e633493402500a4%26mid%3Df2a85e712d556c1b%26ct%3DNEWS&amp;ecd=1&amp;uc=320x568&amp;pis=-1x-1&amp;sr=320x568&amp;tcn=1554968121&amp;qn=86d9bcdbfd55dccf&amp;tt=1554968120254.869.870.873" width="320" height="192" align="center,center" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" style="border:0;vertical-align:bottom;margin:0;width:320px;height:192px" allowtransparency="true"></iframe></div>
+      </div>
+      <div class="swiper-slide sp2"></div>
+      </div>
+  
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="../swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+
+    setTimeout(function() {
+      var sp2 = document.querySelector('.sp2');
+      sp2.innerHTML = "<h4>ok</h4>"
+    }, 3500);
+
+   var timerLo = window.setInterval(() => {
+        var sp2 = document.querySelector('.sp2');
+        console.log(!!sp2.innerHTML);
+        if (!!sp2.innerHTML) {
+            window.clearInterval(timerLo);
+            timerLo = null;
+            var swiper = new Swiper('.swiper-container', {
+              loop: true,
+              autoplay: true,
+              spaceBetween: 30,
+              // pagination: {
+              //   el: '.swiper-pagination',
+              //   clickable: true,
+              // },
+            });
+        }
+    }, 300);
+    
+  </script>
+</body>
+</html>

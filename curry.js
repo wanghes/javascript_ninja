@@ -23,6 +23,8 @@ var add_prev = add.curry(1);
 var result1 = add_prev(2);
 console.log(result1);
 
+assert(result1 == 3, "柯里化后 result1=3");
+
 
 // 该实现类本质类似于 Prototype.js的 curry() 方法
 Function.prototype.partial = function() {
@@ -61,4 +63,10 @@ bindClick(function() {
 });
 
 
+var obj = {};
+var fn = function() {}
+
+
+
+assert(obj && fn, "Both the object and function exist");
 

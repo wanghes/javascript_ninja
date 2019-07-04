@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>柯里化</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+</head>
+<body>
+	<div id="first">盒子1</div>
+	<div id="first2">盒子1</div>
+<script type="text/javascript" src="assert.js"></script>
+<script type="text/javascript" src="merge.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		var merged = merge({
+			name: "Batou"
+		}, {
+			city: "Niihama"
+		})
+
+		assert(merged.name === "Batou", "this original name is intact");
+		assert(merged.city === "Niihama", "and the city has been copied over.");
+	}
+</script>	
+</body>
+</html>
