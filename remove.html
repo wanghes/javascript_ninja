@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+</head>
+<body>
+    <div id="parent">
+        <div id="a">a</div>
+        <div id="b">b</div>
+    </div>
+<script type="text/javascript" src="assert.js"></script>
+<script type="text/javascript">
+    HTMLElement.prototype.remove = function() {
+        if (this.parentNode) {
+            this.parentNode.removeChild(this);
+        }
+    }
+    var a = document.getElementById('a');
+    a.parentNode.removeChild(a);
+    document.getElementById('b').remove();
+
+    assert(!document.getElementById('a'), "a is gone");
+    assert(!document.getElementById('b'), "b is gone too");
+
+
+    Object.prototype.keys = function() {
+        var keys = [];
+        for (var p in this) {
+            keys.push(p)
+        }
+        return keys;
+    }
+
+    var obj = {a:1, b:2, c:3}
+    assert(obj.keys().length == 3, "Three are three properties in this Object");
+    console.log(obj.keys()) // ["a", "b", "c", "keys"]
+
+    Object.prototype.keys2 = function() {
+        var keys = [];
+        for (var i in this) {
+            if (this.hasOwnProperty(i)) {
+                keys.push(i);
+            }
+        }
+        return keys;
+    }
+    assert(obj.keys2().length == 3, "Three are three properties in this Object");
+    console.log(obj.keys2())
+</script>	
+</body>
+</html>

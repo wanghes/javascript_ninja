@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="assert.js"></script>
+    <script>
+        var html = "<div class='test'><b>hello</b> <i>world!</i></div>";
+
+        var results = html.match(/<(\/?)(\w+)([^>]*?)>/);
+        console.log(results);
+
+        var tag = /<(\/?)(\w+)([^>]*?)>/g, match;
+        var num = 0;
+
+        while ((match = tag.exec(html)) !== null) {
+            console.log(match)
+            assert(match.length == 4, "every match files each tag and 3 captures");
+            num ++;
+        }
+        assert(num==6, "3 opening and 3 closing tags found");
+
+
+        var html2 = "<b class='hello'>hello</b> <i>world!</i>"
+        var pattern = /<(\w+)([^>]*)>(.*?)<\/\1>/g
+        var match2 = html2.match(pattern);
+        console.log(match2)
+
+        var match22 = pattern.exec(html2);
+        console.log(match22)
+        match22 = pattern.exec(html2);
+        console.log(match22);
+
+        assert("fontFamily".replace(/([A-Z])/g, "-$1").toLowerCase() == "font-family", "Convert the camelCase into dashed notation.");
+
+        // 非捕获性匹配
+        var pattern2 = /((?:ninja-)+)sword/;
+        var ninjas = "ninja-ninja-sword".match(pattern2);
+        console.log(ninjas)
+        var ninjas2 = pattern2.exec("ninja-ninja-sword");
+        console.log(ninjas2)
+        ninjas2 = pattern2.exec("ninja-ninja-sword");
+        console.log(ninjas2);
+
+
+
+        function upper(all, letter) { return letter.toUpperCase() }
+
+        assert("border-bottom-width".replace(/-(\w)/g, upper)=="borderBottomWidth", "Camel cased a hyphenated string");
+
+
+    </script>
+</body>
+</html>

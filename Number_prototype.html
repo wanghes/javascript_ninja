@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+</head>
+
+<body>
+    <script type="text/javascript" src="assert.js"></script>
+    <script type="text/javascript">
+        Number.prototype.add = function(num) {
+            return this + num;
+        }
+
+        var n = 5;
+        assert(n.add(3)==8, "如果是一个数字变量，通过");
+        assert((5).add(3)==8, "如果是被圆括号包裹一个数字变量，通过");
+        // assert(5.add(3)==8, "如果是一个数字字面量，不通过");
+        // 以上说明 尽量不要在Number的原型上做扩展 所以第三个不通过
+    </script>
+</body>
+
+</html>
